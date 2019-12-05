@@ -20,8 +20,6 @@ const PeriodSchema = new mongoose.Schema({
     classTeams:[
         {type:mongoose.Schema.Types.ObjectId, ref:'ClassTeam'}
     ],
-    
-    teacher:{type:mongoose.Schema.Types.ObjectId, ref:'Teacher'},
 
     subject:{type:mongoose.Schema.Types.ObjectId, ref:'Subject'},
     
