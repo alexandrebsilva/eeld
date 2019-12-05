@@ -35,13 +35,26 @@ module.exports = {
     },
 
     async addStudent (req, res) {
-        const student = await Student.findById(req.body.classTeam_id);
-        const classTeam = await classTeam.findById(req.body.classTeam.id);
-        
+        const student = await Student.findById(req.body.student_id);
+        //res.json(student)
+        const classTeam = await ClassTeam.findById(req.body.classTeam_id);
+
         await classTeam.update({$push:{students:student}});
+
         return res.json(classTeam);
     },
 
+    async removeStudent (req, res) {
+        const student = await Student.findById(req.body.student_id);
+        //res.json(student)
+        const classTeam = await ClassTeam.findById(req.body.classTeam_id);
+        
+        await classTeam.update({$pull:{students:student._id}});
+
+        return res.json(classTeam);
+    },
+
+    //nao utilizada
     async addTeacher (req, res) {
         const teacher = await Teacher.findById(req.body.teacher_id);
         const classTeam = await ClassTeam.findById(req.body.classTeam.id);

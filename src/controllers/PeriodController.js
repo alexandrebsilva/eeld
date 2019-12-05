@@ -49,28 +49,28 @@ module.exports = {
 
     async addClassTeam (req, res){
         const classTeam = await ClassTeam.findById(req.body.classTeam_id);
-        const updatedPeriod = await Period.update(
-            {_id: req.body.period_id},
-            {$push: {classTeams:classTeam}}
-        );
-        return res.json(Period.findById(req.body.period_id));
+        const period = await Period.findById(req.body.period_id)
+        
+        await period.update({$push:{classTeams:classTeam}});
+        
+        return res.json(period);
     },
 
     async addSubject (req, res){
         const subject = await Subject.findById(req.body.subject_id);
-        const updatedPeriod = await Period.update(
-            {_id: req.body.period_id},
-            {$push: {subject:subject}}
-        );
-        return res.json(Period.findById(req.body.period_id));
+        const period = await Period.findById(req.body.period_id)
+        
+        await period.update({subject:subject});
+        
+        return res.json(period);
     },
     
     async addTeacher (req, res) {
         const teacher = await Teacher.findById(req.body.teacher_id);
-        const updatedPeriod = await Period.update(
-            {_id: req.body.period_id},
-            {$push: {teacher:teacher}}
-        );
-        return res.json(Period.findById(req.body.period_id));
+        const period = await Period.findById(req.body.period_id)
+        
+        await period.update({$push:{teacher:teacher}});
+        
+        return res.json(period);
     }
 }

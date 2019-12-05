@@ -12,7 +12,8 @@ app.use(cors())
 
 //ORM
 //iniciarndo o DB
-/*mongoose.connect('mongodb://localhost:27017/eeld', {useNewUrlParser:true, useUnifiedTopology: true })
+/*
+mongoose.connect('mongodb://localhost:27017/eeld', {useNewUrlParser:true, useUnifiedTopology: true })
 requireDir('./src/models')*/
 
 //cluster de mongo em cloud.mongo.com
