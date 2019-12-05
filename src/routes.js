@@ -70,6 +70,7 @@ routes.put("/teachers/:id", TeacherController.update)
 routes.delete("/teachers/:id", TeacherController.destroy)
 
 routes.get('/periods', PeriodController.index)
+routes.get('/allPeriods', PeriodController.allPeriods)
 routes.get('/periods/:id', PeriodController.show)
 routes.post('/periods', PeriodController.store)
 routes.put("/periods/:id", PeriodController.update)

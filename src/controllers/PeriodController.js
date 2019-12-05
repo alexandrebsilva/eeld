@@ -17,6 +17,12 @@ module.exports = {
         return res.json(periods);
     },
 
+    async allPeriods(req, res) { 
+        const periods = await Period.find();
+
+        return res.json(periods);
+    },
+
     async store (req, res) {
         const period = await Period.create(req.body);
 
