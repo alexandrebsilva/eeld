@@ -2,25 +2,19 @@ const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate');
 
 
-const PeriodSchema = new mongoose.Schema({
-    order:{
-        type:Number,
-        required:true
-    },
-
-    beginTime:{
+const SessionSchema = new mongoose.Schema({
+    classTeam:{
         type:String,
         required:true
     },
-
-    finishTime:{
-        type:String
+    teacher:{
+        type:String,
+        required:true
     },
-
-    sessions:[
-        {type:mongoose.Schema.Types.ObjectId, ref:'SessionSchema'}
-    ],
-    
+    subject:{
+        type:String,
+        required:true
+    },
     createdAt:{
         type:Date,
         default:Date.now
@@ -30,4 +24,4 @@ const PeriodSchema = new mongoose.Schema({
 //registra o plugin de paginação
 PeriodSchema.plugin(mongoosePaginate);
 
-mongoose.model('Period', PeriodSchema)
+mongoose.model('Period', SessionSchema)
