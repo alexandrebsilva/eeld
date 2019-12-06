@@ -7,6 +7,8 @@ const cors = require('cors')
 
 //permite a requisição carregar JSON
 app.use(express.json())
+
+//necessario para enviar dados via json 
 app.use(cors())
 
 //cluster de mongo em cloud.mongo.com

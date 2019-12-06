@@ -8,16 +8,12 @@ const SubjectController = require('./controllers/SubjectController');
 const PeriodController = require('./controllers/PeriodController')
 const SessionController = require('./controllers/SessionController')
 
+const students = require('./routes/studentsRoutes')
+routes.use('/students', students)
 
-routes.get('/students', StudentController.index)
-routes.get('/allStudents', StudentController.allStudents)
-routes.get('/students/:id', StudentController.show)
-routes.post('/students', StudentController.store)
-routes.put("/students/:id", StudentController.update)
-routes.delete("/students/:id", StudentController.destroy)
 
 routes.get('/classTeams', ClassTeamController.index)
-routes.get('/allClassTeams', ClassTeamController.allClassTeams)
+routes.get('/classteams/allClassTeams', ClassTeamController.allClassTeams)
 routes.get('/classTeams/:id', ClassTeamController.show)
 routes.get('/classTeams/availableStudents/:id', ClassTeamController.availableStudents)
 routes.post('/classTeams/addStudent', ClassTeamController.addStudent)
