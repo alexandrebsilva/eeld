@@ -69,7 +69,7 @@ module.exports = {
         const teacher = await Teacher.findById(req.body.teacher_id);
         const period = await Period.findById(req.body.period_id)
         
-        await period.update({$push:{teacher:teacher}});
+        await period.update({teacher:teacher});
         
         return res.json(period);
     }
