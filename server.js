@@ -3,6 +3,8 @@ const app = express();
 const mongoose = require('mongoose');
 const requireDir = require('require-dir');
 
+require('dotenv').config();
+
 const cors = require('cors')
 
 //permite a requisição carregar JSON
@@ -12,9 +14,8 @@ app.use(express.json())
 app.use(cors())
 
 //cluster de mongo em cloud.mongo.com
-mongoose.connect('mongodb+srv://root:root@eeldcluster-uaf0s.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true })
+mongoose.connect(process.env.DB_CON_STRING, { useNewUrlParser: true })
 requireDir('./src/models')
-
 
 //rotas
 app.use('/api', require('./src/routes'))
