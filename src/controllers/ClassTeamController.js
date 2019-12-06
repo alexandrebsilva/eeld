@@ -37,10 +37,10 @@ module.exports = {
     async availableStudents (req, res) {
         const classTeam = await ClassTeam.findById(req.params.id);  
         const addedStudents = classTeam.students;
-        let availableStudents = [];
-        //const students = await Student.find($ne{})
+        //return res.json(addedStudents)
+        const availableStudents = await Student.find({_id: {$nin:addedStudents}})
         //const students = await this.
-        return res.json(addedStudents);
+        return res.json(availableStudents);
     },
 
     async addStudent (req, res) {
