@@ -33,6 +33,15 @@ module.exports = {
 
         return res.json(classTeam);
     },
+    
+    async availableStudents (req, res) {
+        const classTeam = await ClassTeam.findById(req.params.id);  
+        const addedStudents = classTeam.students;
+        let availableStudents = [];
+        //const students = await Student.find($ne{})
+        //const students = await this.
+        return res.json(addedStudents);
+    },
 
     async addStudent (req, res) {
         const student = await Student.findById(req.body.student_id);
@@ -41,7 +50,7 @@ module.exports = {
 
         await classTeam.update({$push:{students:student}});
 
-        return res.json(classTeam);
+        return res.json(student);
     },
 
     async removeStudent (req, res) {
@@ -51,7 +60,7 @@ module.exports = {
         
         await classTeam.update({$pull:{students:student._id}});
 
-        return res.json(classTeam);
+        return res.json(student);
     },
 
     //nao utilizada

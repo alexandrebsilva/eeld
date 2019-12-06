@@ -51,6 +51,8 @@ routes.delete("/students/:id", StudentController.destroy)
 routes.get('/classTeams', ClassTeamController.index)
 routes.get('/allClassTeams', ClassTeamController.allClassTeams)
 routes.get('/classTeams/:id', ClassTeamController.show)
+
+routes.get('/classTeams/availableStudents/:id', ClassTeamController.availableStudents)
 routes.post('/classTeams/addStudent', ClassTeamController.addStudent)
 routes.post('/classTeams/removeStudent', ClassTeamController.removeStudent)
 routes.post('/classTeams', ClassTeamController.store)
