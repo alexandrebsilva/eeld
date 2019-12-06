@@ -70,6 +70,13 @@ routes.post('/teachers', TeacherController.store)
 routes.put("/teachers/:id", TeacherController.update)
 routes.delete("/teachers/:id", TeacherController.destroy)
 
+routes.get('/sessions', TeacherController.index)
+routes.get('/allSessions', TeacherController.allTeachers)
+routes.get('/sessions/:id', TeacherController.show)
+routes.post('/sessions', TeacherController.store)
+routes.put("/sessions/:id", TeacherController.update)
+routes.delete("/sessions/:id", TeacherController.destroy)
+
 routes.get('/periods', PeriodController.index)
 routes.get('/allPeriods', PeriodController.allPeriods)
 routes.get('/periods/:id', PeriodController.show)
