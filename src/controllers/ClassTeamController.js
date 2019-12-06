@@ -70,7 +70,7 @@ module.exports = {
     },
 
     async destroy (req, res){
-        await Student.findByIdAndDelete(req.params.id);
+        await ClassTeam.findByIdAndDelete(req.params.id);
 
         return res.json({'success':true})
     }

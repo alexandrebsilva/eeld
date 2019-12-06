@@ -8,6 +8,7 @@ const ClassTeamController = require('./controllers/ClassTeamController');
 const TeacherController = require('./controllers/TeacherController');
 const SubjectController = require('./controllers/SubjectController');
 const PeriodController = require('./controllers/PeriodController')
+const SessionController = require('./controllers/SessionController')
 
 routes.post('/login', function(req, res){
     const user = {id:3};
@@ -70,12 +71,13 @@ routes.post('/teachers', TeacherController.store)
 routes.put("/teachers/:id", TeacherController.update)
 routes.delete("/teachers/:id", TeacherController.destroy)
 
-routes.get('/sessions', TeacherController.index)
-routes.get('/allSessions', TeacherController.allTeachers)
-routes.get('/sessions/:id', TeacherController.show)
-routes.post('/sessions', TeacherController.store)
-routes.put("/sessions/:id", TeacherController.update)
-routes.delete("/sessions/:id", TeacherController.destroy)
+routes.get('/sessions', SessionController.index)
+routes.get('/allSessions', SessionController.allTeachers)
+routes.get('/sessions/:id', SessionController.show)
+routes.get('/sessions/period/:id', SessionController.sessionsByPeriodId)
+routes.post('/sessions', SessionController.store)
+routes.put("/sessions/:id", SessionController.update)
+routes.delete("/sessions/:id", SessionController.destroy)
 
 routes.get('/periods', PeriodController.index)
 routes.get('/allPeriods', PeriodController.allPeriods)

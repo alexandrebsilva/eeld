@@ -15,6 +15,10 @@ const SessionSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    periodo_id:{
+        type:String,
+        required:true
+    },
     createdAt:{
         type:Date,
         default:Date.now
@@ -22,6 +26,6 @@ const SessionSchema = new mongoose.Schema({
 })
 
 //registra o plugin de paginação
-PeriodSchema.plugin(mongoosePaginate);
+SessionSchema.plugin(mongoosePaginate);
 
-mongoose.model('Period', SessionSchema)
+mongoose.model('Session', SessionSchema)

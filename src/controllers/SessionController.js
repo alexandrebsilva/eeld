@@ -19,6 +19,12 @@ module.exports = {
         return res.json(teachers);
     },
 
+    async sessionsByPeriodId (req, res) {
+        const session = await Session.find({periodo_id:req.params.id});  
+
+        return res.json(session);
+    },
+
 
     async store (req, res) {
         const session = await Session.create(req.body);
